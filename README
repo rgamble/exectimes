@@ -1,0 +1,13 @@
+This program uses POSIX advisory locking to prevent more than a specifed
+number of instances of a program from running at one time.
+
+A typical invocation looks like this:
+exectimes /var/run/mylockfile 10 command-to-run command-arguments
+which is usually placed in a shell script.
+
+exectimes will then execute the program only if the number of currently
+running instances, determined by the lock file, is less than the maxmimum
+allowed, specified as the second program argument.
+
+See the included pdf documentation or the blog post at 
+http://www.robertgamble.net/2011/04/cooperative-limiting-of-concurrent.html for details.
